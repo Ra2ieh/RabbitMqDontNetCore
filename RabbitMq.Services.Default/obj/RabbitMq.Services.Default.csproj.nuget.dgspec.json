@@ -43,11 +43,84 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[6.2.2, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\programs\\RabbitMq\\RabbitMq.Services.Contract\\RabbitMq.Services.Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\programs\\RabbitMq\\RabbitMq.Services.Contract\\RabbitMq.Services.Contract.csproj",
+        "projectName": "RabbitMq.Services.Contract",
+        "projectPath": "F:\\programs\\RabbitMq\\RabbitMq.Services.Contract\\RabbitMq.Services.Contract.csproj",
+        "packagesPath": "C:\\Users\\Ra2ieh\\.nuget\\packages\\",
+        "outputPath": "F:\\programs\\RabbitMq\\RabbitMq.Services.Contract\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Ra2ieh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "F:\\programs\\RabbitMq\\RabbitMq.Common\\RabbitMq.Common.csproj": {
+                "projectPath": "F:\\programs\\RabbitMq\\RabbitMq.Common\\RabbitMq.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "imports": [
             "net461",
             "net462",
@@ -96,6 +169,9 @@
             "projectReferences": {
               "F:\\programs\\RabbitMq\\RabbitMq.Common\\RabbitMq.Common.csproj": {
                 "projectPath": "F:\\programs\\RabbitMq\\RabbitMq.Common\\RabbitMq.Common.csproj"
+              },
+              "F:\\programs\\RabbitMq\\RabbitMq.Services.Contract\\RabbitMq.Services.Contract.csproj": {
+                "projectPath": "F:\\programs\\RabbitMq\\RabbitMq.Services.Contract\\RabbitMq.Services.Contract.csproj"
               }
             }
           }

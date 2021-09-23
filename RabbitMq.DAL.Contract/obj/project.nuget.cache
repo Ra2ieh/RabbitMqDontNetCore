@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "q1QlzMIJNVh6nuSyR9Q5OYygysI5UMIiqZTvUnAyZN/BkIPgIXm6u/7t7kxlK/K6d781YcMMHWtfWeMSwSvAcg==",
+  "dgSpecHash": "QpKEy/NT/2M5E//4LjuaQ6t+RH240K4s+SsToP+3jbF+6+HyzaEu8Fpl6ZoyMilb0g4V44+ajsgI05xy41qdvA==",
   "success": true,
   "projectFilePath": "F:\\programs\\RabbitMq\\RabbitMq.DAL.Contract\\RabbitMq.DAL.Contract.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\rabbitmq.client\\6.2.2\\rabbitmq.client.6.2.2.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"

@@ -1,0 +1,17 @@
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Services.Default.deps.json
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Services.Default.dll
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\ref\RabbitMq.Services.Default.dll
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Services.Default.pdb
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Common.dll
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Services.Contract.dll
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Common.pdb
+F:\programs\RabbitMq\RabbitMq.Services.Default\bin\Debug\net5.0\RabbitMq.Services.Contract.pdb
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.csproj.AssemblyReference.cache
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.GeneratedMSBuildEditorConfig.editorconfig
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.AssemblyInfoInputs.cache
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.AssemblyInfo.cs
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.csproj.CoreCompileInputs.cache
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.csproj.CopyComplete
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.dll
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\ref\RabbitMq.Services.Default.dll
+F:\programs\RabbitMq\RabbitMq.Services.Default\obj\Debug\net5.0\RabbitMq.Services.Default.pdb

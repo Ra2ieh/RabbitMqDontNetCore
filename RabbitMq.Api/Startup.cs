@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RabbitMq.Services.Default;
+using RabbitMq.Services.Contract.Contracts;
+using RabbitMq.Services.Default.Services;
+using RabbitMq.Services.Default.Dependencies;
 
 namespace RabbitMq.Api
 {
@@ -23,7 +27,8 @@ namespace RabbitMq.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddMvc();
+            services.AddConfigure(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +54,7 @@ namespace RabbitMq.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
