@@ -9,6 +9,12 @@ namespace RabbitMq.Services.Contract.Contracts
 {
     public interface IRabbitMqService
     {
-        Task GetMessage(MessageModel content);
+        Task SetDirectMessage(MessageModel content);
+        Task SetFanoutMessage(MessageModel content);
+        Task SetTopicMessage(MessageModel content);
+        Task SetHeaderMessage(MessageModel content);
+        Task SetAlternativeMessage(MessageModel content);
+        Task SetTemperaryMessage(MessageModel content);
+        Task SetTTlMessage(MessageModel content);
     }
 }

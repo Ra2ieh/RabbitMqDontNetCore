@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "QpKEy/NT/2M5E//4LjuaQ6t+RH240K4s+SsToP+3jbF+6+HyzaEu8Fpl6ZoyMilb0g4V44+ajsgI05xy41qdvA==",
+  "dgSpecHash": "gy67hpRhw+43ONXjqLxP8PdfainTwegzzI19E34Gy7FxWr++K9VqglPkPpgVlEgSy/K+enJAVGDe1BbfEIRXsA==",
   "success": true,
   "projectFilePath": "F:\\programs\\RabbitMq\\RabbitMq.DAL.Contract\\RabbitMq.DAL.Contract.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.configuration.binder\\5.0.0\\microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\5.0.0\\microsoft.extensions.options.configurationextensions.5.0.0.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\rabbitmq.client\\6.2.2\\rabbitmq.client.6.2.2.nupkg.sha512",

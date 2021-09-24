@@ -17,10 +17,47 @@ namespace RabbitMq.Api.Controller
             _service = service;
         }
         [HttpPost]
-        public async Task<IActionResult> GetMessage(MessageModel message)
+        public async Task<IActionResult> SendDirectMessage([FromBody] MessageModel message)
         {
-          await   _service.GetMessage(message);
+          await   _service.SetDirectMessage(message);
             return Ok();
         }
+        [HttpPost]
+        public async Task<IActionResult> SetFanoutMessage([FromBody] MessageModel message)
+        {
+          await   _service.SetFanoutMessage(message);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetTopicMessage([FromBody]MessageModel message)
+        {
+          await   _service.SetTopicMessage(message);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetHeaderMessage([FromBody] MessageModel message)
+        {
+          await   _service.SetHeaderMessage(message);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetAlternativeMessage([FromBody] MessageModel message)
+        {
+            await _service.SetAlternativeMessage(message);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetTemperaryMessage([FromBody] MessageModel message)
+        {
+          await   _service.SetTemperaryMessage(message);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetTTlMessage([FromBody] MessageModel message)
+        {
+            await _service.SetTTlMessage(message);
+            return Ok();
+        }
+
     }
 }

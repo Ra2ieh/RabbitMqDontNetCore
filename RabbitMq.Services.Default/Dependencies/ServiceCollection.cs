@@ -1,13 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RabbitMq.Common.Commons;
+using RabbitMq.Common;
 using RabbitMq.Services.Contract.Contracts;
 using RabbitMq.Services.Default.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RabbitMq.Services.Default.Dependencies
 {
@@ -17,6 +13,9 @@ namespace RabbitMq.Services.Default.Dependencies
         {
             services.AddScoped<IMessageBrokerService, MessageBrokerService>();
             services.AddScoped<IRabbitMqService, RabbitMqService>();
+            services.AddOptions();
+            services.Configure<AppConfigs>(configuration.GetSection("AppConfigs"));
+     
         }
     }
 }
