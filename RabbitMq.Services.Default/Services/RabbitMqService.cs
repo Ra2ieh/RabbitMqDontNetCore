@@ -15,7 +15,7 @@ namespace RabbitMq.Services.Default.Services
     {
         private readonly IMessageBrokerService _messageBrokerService;
         private readonly AppConfigs _configs;
-        public RabbitMqService(IMessageBrokerService messageBrokerService,IOptions<AppConfigs> options)
+        public RabbitMqService(IMessageBrokerService messageBrokerService, IOptions<AppConfigs> options)
         {
 
             _messageBrokerService = messageBrokerService;
@@ -23,19 +23,19 @@ namespace RabbitMq.Services.Default.Services
         }
         public async Task SetDirectMessage(MessageModel content)
         {
-            var channel=_messageBrokerService.GetInstance();
+            var channel = _messageBrokerService.GetInstance();
             var message = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
             channel.BasicPublish("", _configs.DirectConfig.RoutingKey, false, null, message);
             channel.Close();
 
         }
 
-        public async  Task SetFanoutMessage(MessageModel content)
+        public async Task SetFanoutMessage(MessageModel content)
         {
             var channel = _messageBrokerService.GetInstance();
             var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
 
-            channel.BasicPublish(exchange:_configs.FanoutConfig.ExchangeName,
+            channel.BasicPublish(exchange: _configs.FanoutConfig.ExchangeName,
                                  routingKey: "",
                                  false,
                                  basicProperties: null,
@@ -43,12 +43,12 @@ namespace RabbitMq.Services.Default.Services
             channel.Close();
         }
 
-        public async  Task SetTopicMessage(MessageModel content)
+        public async Task SetTopicMessage(MessageModel content)
         {
             var channel = _messageBrokerService.GetInstance();
             var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
-            channel.BasicPublish(exchange:_configs.TopicConfig.ExchangeName,
-                         routingKey:content.RoutingKey,
+            channel.BasicPublish(exchange: _configs.TopicConfig.ExchangeName,
+                         routingKey: content.RoutingKey,
                          false,
                          basicProperties: null,
                          body: body);
@@ -56,7 +56,7 @@ namespace RabbitMq.Services.Default.Services
 
         }
 
-        public async  Task SetHeaderMessage(MessageModel content)
+        public async Task SetHeaderMessage(MessageModel content)
         {
             var channel = _messageBrokerService.GetInstance();
             var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
@@ -81,14 +81,44 @@ namespace RabbitMq.Services.Default.Services
                                          body: body);
         }
 
-        public Task SetTemperaryMessage(MessageModel content)
+        public async Task SetTemperaryMessage(MessageModel content)
         {
-            throw new NotImplementedException();
+            var channel = _messageBrokerService.GetInstance();
+            var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
+            channel.BasicPublish(exchange: _configs.TemperaryConfig.ExchangeName,
+                         routingKey: _configs.TemperaryConfig.RoutingKey,
+                         false,
+                         basicProperties: null,
+                         body: body);
+            channel.Close();
         }
 
-        public Task SetTTlMessage(MessageModel content)
+        public async Task SetTTlMessage(MessageModel content)
         {
-            throw new NotImplementedException();
+            var channel = _messageBrokerService.GetInstance();
+            var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
+            channel.BasicPublish(exchange: _configs.TTLMainConfig.ExchangeName,
+                         routingKey: _configs.TTLMainConfig.RoutingKey,
+                         false,
+                         basicProperties: null,
+                         body: body);
+            channel.Close();
+        }
+        public async Task SetOverFlowMessage(MessageModel content)
+        {
+            var channel = _messageBrokerService.GetInstance();
+
+            for (int i = 0; i < 15; i++)
+            {
+                var body = Encoding.UTF8.GetBytes($"{i}--{JsonConvert.SerializeObject(content)}");
+                channel.BasicPublish(exchange:"",
+             routingKey:"OveflowQueue",
+             false,
+             basicProperties: null,
+             body: body);
+            }
+
+            channel.Close();
         }
     }
 }

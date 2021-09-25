@@ -16,5 +16,6 @@ namespace RabbitMq.Services.Contract.Contracts
         Task SetAlternativeMessage(MessageModel content);
         Task SetTemperaryMessage(MessageModel content);
         Task SetTTlMessage(MessageModel content);
+        Task SetOverFlowMessage(MessageModel content);
     }
 }

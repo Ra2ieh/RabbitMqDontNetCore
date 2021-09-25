@@ -57,6 +57,12 @@ namespace RabbitMq.Api.Controller
         {
             await _service.SetTTlMessage(message);
             return Ok();
+        } 
+        [HttpPost]
+        public async Task<IActionResult> SetOverFlowMessage([FromBody] MessageModel message)
+        {
+            await _service.SetOverFlowMessage(message);
+            return Ok();
         }
 
     }

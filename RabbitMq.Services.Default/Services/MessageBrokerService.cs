@@ -24,7 +24,7 @@ namespace RabbitMq.Services.Default.Services
 
         public void Setting()
         {
-             _connectionFactory ??= new ConnectionFactory() { HostName = "localhost" };
+            _connectionFactory ??= new ConnectionFactory() { HostName = "localhost" };
             _connection = _connectionFactory.CreateConnection();
             using var channel = GetInstance();
             //direct
@@ -39,20 +39,20 @@ namespace RabbitMq.Services.Default.Services
             channel.ExchangeDeclare(_configs.FanoutConfig.ExchangeName, ExchangeType.Fanout, durable: false, autoDelete: false, arguments: null);
             for (int i = 1; i < 6; i++)
             {
-                channel.QueueDeclare(queue:$"{ _configs.FanoutConfig.QueueName}{i}", durable: false, exclusive: false, autoDelete: false, arguments: null);
-                channel.QueueBind(queue: $"{ _configs.FanoutConfig.QueueName}{i}",exchange: _configs.FanoutConfig.ExchangeName, "", null);
+                channel.QueueDeclare(queue: $"{ _configs.FanoutConfig.QueueName}{i}", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                channel.QueueBind(queue: $"{ _configs.FanoutConfig.QueueName}{i}", exchange: _configs.FanoutConfig.ExchangeName, "", null);
             }
 
             #endregion
 
             //topic 
             #region Topic
-            channel.ExchangeDeclare(exchange:_configs.TopicConfig.ExchangeName,ExchangeType.Topic,durable: false,autoDelete: false,arguments: null);
-            channel.QueueDeclare(queue: $"{_configs.TopicConfig.QueueName}1",durable: false,exclusive: false,autoDelete: false,arguments: null);
-            channel.QueueDeclare(queue: $"{_configs.TopicConfig.QueueName}2",durable: false,exclusive: false,autoDelete: false,arguments: null);
+            channel.ExchangeDeclare(exchange: _configs.TopicConfig.ExchangeName, ExchangeType.Topic, durable: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: $"{_configs.TopicConfig.QueueName}1", durable: false, exclusive: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: $"{_configs.TopicConfig.QueueName}2", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
-            channel.QueueBind(queue: $"{_configs.TopicConfig.QueueName}1",exchange: _configs.TopicConfig.ExchangeName, routingKey: "*.test.*", null);
-            channel.QueueBind(queue: $"{_configs.TopicConfig.QueueName}2", exchange: _configs.TopicConfig.ExchangeName,routingKey: "*.test.x", null);
+            channel.QueueBind(queue: $"{_configs.TopicConfig.QueueName}1", exchange: _configs.TopicConfig.ExchangeName, routingKey: "*.test.*", null);
+            channel.QueueBind(queue: $"{_configs.TopicConfig.QueueName}2", exchange: _configs.TopicConfig.ExchangeName, routingKey: "*.test.x", null);
             #endregion
 
 
@@ -70,10 +70,10 @@ namespace RabbitMq.Services.Default.Services
             var propQ3 = new Dictionary<string, object> { { "x-match", "all" },
                                                           { "type", "header" },
                                                           { "color", "green" }};
-            channel.ExchangeDeclare(exchange:_configs.HeaderConfig.ExchangeName,ExchangeType.Headers,durable: false,autoDelete: false,arguments: null);
-            channel.QueueDeclare(queue: $"{_configs.HeaderConfig.QueueName}1",durable: false,exclusive: false,autoDelete: false,arguments: null);
-            channel.QueueDeclare(queue: $"{_configs.HeaderConfig.QueueName}2",durable: false,exclusive: false,autoDelete: false,arguments: null);
-            channel.QueueDeclare(queue: $"{_configs.HeaderConfig.QueueName}3",durable: false, exclusive: false,autoDelete: false,arguments: null);
+            channel.ExchangeDeclare(exchange: _configs.HeaderConfig.ExchangeName, ExchangeType.Headers, durable: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: $"{_configs.HeaderConfig.QueueName}1", durable: false, exclusive: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: $"{_configs.HeaderConfig.QueueName}2", durable: false, exclusive: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: $"{_configs.HeaderConfig.QueueName}3", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
             channel.QueueBind(queue: $"{_configs.HeaderConfig.QueueName}1", exchange: _configs.HeaderConfig.ExchangeName, "", propQ1);
             channel.QueueBind(queue: $"{_configs.HeaderConfig.QueueName}2", exchange: _configs.HeaderConfig.ExchangeName, "", propQ2);
@@ -87,7 +87,7 @@ namespace RabbitMq.Services.Default.Services
             channel.ExchangeDeclare(_configs.AltMainConfig.ExchangeName, ExchangeType.Direct, false, false, alternativeArg);
             channel.ExchangeDeclare(_configs.AltRetryConfig.ExchangeName, ExchangeType.Fanout, false, false, null);
             //channel.QueueDeclare(_configs.AltMainConfig.QueueName);//exclusive is true 
-            channel.QueueDeclare(_configs.AltMainConfig.QueueName,false,exclusive:false,autoDelete:false);
+            channel.QueueDeclare(_configs.AltMainConfig.QueueName, false, exclusive: false, autoDelete: false);
             channel.QueueBind(_configs.AltMainConfig.QueueName, _configs.AltMainConfig.ExchangeName, "key1");
             channel.QueueDeclare(_configs.AltRetryConfig.QueueName, false, exclusive: false, autoDelete: false);
             channel.QueueBind(_configs.AltRetryConfig.QueueName, _configs.AltRetryConfig.ExchangeName, "");
@@ -97,7 +97,7 @@ namespace RabbitMq.Services.Default.Services
             //temperary 
 
             var arg = new Dictionary<string, object> { { "x-expires", _configs.TemperaryConfig.ExpireTime }, { "x-message-ttl", _configs.TemperaryConfig.TTl } };
-            channel.QueueDeclare(queue: _configs.TemperaryConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: _configs.TemperaryConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: arg);
             #endregion
             //queue with ttl
             #region TTl
@@ -108,11 +108,11 @@ namespace RabbitMq.Services.Default.Services
                                                                    { "x-dead-letter-routing-key", _configs.TTlRetryConfig.RoutingKey } };
             channel.QueueDeclare(queue: _configs.TTLMainConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: ttlMainQueueArg);
 
-            channel.QueueBind(queue: _configs.TTLMainConfig.QueueName,exchange:_configs.TTLMainConfig.ExchangeName,routingKey:_configs.TTLMainConfig.RoutingKey);
+            channel.QueueBind(queue: _configs.TTLMainConfig.QueueName, exchange: _configs.TTLMainConfig.ExchangeName, routingKey: _configs.TTLMainConfig.RoutingKey);
 
             //retry exchange 
 
-            var ttlRetryQueueArg = new Dictionary<string, object> { 
+            var ttlRetryQueueArg = new Dictionary<string, object> {
                                                             { "x-dead-letter-exchange", _configs.TTlRetryConfig.ExchangeName },
                                                             { "x-dead-letter-routing-key", _configs.TTlRetryConfig.RoutingKey },
                                                             { "x-message-ttl", _configs.TTlRetryConfig.TTl } };
@@ -120,6 +120,11 @@ namespace RabbitMq.Services.Default.Services
 
             channel.QueueBind(queue: _configs.TTlRetryConfig.QueueName, exchange: _configs.TTlRetryConfig.ExchangeName, routingKey: _configs.TTLMainConfig.RoutingKey);
 
+            #endregion
+
+            #region Overflow
+            var argOverflow = new Dictionary<string, object> { { "x-max-length", 10 }};
+            channel.QueueDeclare("OveflowQueue", durable: false, exclusive: false, autoDelete: false, arguments: argOverflow);
             #endregion
             channel.Close();
             channel.Dispose();
