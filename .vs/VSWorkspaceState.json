@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\RabbitMq.Api",
+    "\\RabbitMq.Api\\Controller",
+    "\\RabbitMq.Common",
+    "\\RabbitMq.Common\\Models",
+    "\\RabbitMq.DAL.EF",
+    "\\RabbitMq.DAL.EF\\Dependencies",
+    "\\RabbitMq.Services.Contract",
+    "\\RabbitMq.Services.Contract\\Contracts",
+    "\\RabbitMq.Services.Default",
+    "\\RabbitMq.Services.Default\\Services"
+  ],
+  "SelectedNode": "\\RabbitMq.Api\\Controller\\HomeController.cs",
+  "PreviewInSolutionExplorer": false
+}

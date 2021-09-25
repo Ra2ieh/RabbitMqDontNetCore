@@ -30,3 +30,4 @@ F:\programs\RabbitMq\RabbitMq.Api\bin\Debug\net5.0\RabbitMq.Services.Contract.pd
 F:\programs\RabbitMq\RabbitMq.Api\bin\Debug\net5.0\RabbitMq.Services.Default.dll
 F:\programs\RabbitMq\RabbitMq.Api\bin\Debug\net5.0\RabbitMq.Services.Default.pdb
 F:\programs\RabbitMq\RabbitMq.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+F:\programs\RabbitMq\RabbitMq.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
