@@ -2,6 +2,7 @@
 using RabbitMq.Common;
 using RabbitMq.Services.Contract.Contracts;
 using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,7 +83,7 @@ namespace RabbitMq.Services.Default.Services
 
             //alternative exchange 
             #region Alternative
-            var alternativeArg = new Dictionary<string, object> { { "alternate-exchange", "my-ae" } };
+            var alternativeArg = new Dictionary<string, object> { { "alternate-exchange", _configs.AltRetryConfig.ExchangeName } };
 
             channel.ExchangeDeclare(_configs.AltMainConfig.ExchangeName, ExchangeType.Direct, false, false, alternativeArg);
             channel.ExchangeDeclare(_configs.AltRetryConfig.ExchangeName, ExchangeType.Fanout, false, false, null);
@@ -105,7 +106,9 @@ namespace RabbitMq.Services.Default.Services
             channel.ExchangeDeclare(exchange: _configs.TTLMainConfig.ExchangeName, ExchangeType.Direct, durable: false, autoDelete: false, arguments: null);
             channel.ExchangeDeclare(exchange: _configs.TTlRetryConfig.ExchangeName, ExchangeType.Direct, durable: false, autoDelete: false, arguments: null);
             var ttlMainQueueArg = new Dictionary<string, object> { { "x-dead-letter-exchange", _configs.TTlRetryConfig.ExchangeName },
-                                                                   { "x-dead-letter-routing-key", _configs.TTlRetryConfig.RoutingKey } };
+                                                                   { "x-dead-letter-routing-key", _configs.TTlRetryConfig.RoutingKey },
+                                                                    //{ "x-max-length", 10 },
+                                                                    /*{"x-overflow","reject-publish" }*/ };
             channel.QueueDeclare(queue: _configs.TTLMainConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: ttlMainQueueArg);
 
             channel.QueueBind(queue: _configs.TTLMainConfig.QueueName, exchange: _configs.TTLMainConfig.ExchangeName, routingKey: _configs.TTLMainConfig.RoutingKey);
@@ -113,12 +116,12 @@ namespace RabbitMq.Services.Default.Services
             //retry exchange 
 
             var ttlRetryQueueArg = new Dictionary<string, object> {
-                                                            { "x-dead-letter-exchange", _configs.TTlRetryConfig.ExchangeName },
-                                                            { "x-dead-letter-routing-key", _configs.TTlRetryConfig.RoutingKey },
-                                                            { "x-message-ttl", _configs.TTlRetryConfig.TTl } };
+                                                            { "x-dead-letter-exchange", _configs.TTLMainConfig.ExchangeName },
+                                                            { "x-dead-letter-routing-key", _configs.TTLMainConfig.RoutingKey },
+                                                            { "x-message-ttl", _configs.TTlRetryConfig.TTl }};
             channel.QueueDeclare(queue: _configs.TTlRetryConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: ttlRetryQueueArg);
 
-            channel.QueueBind(queue: _configs.TTlRetryConfig.QueueName, exchange: _configs.TTlRetryConfig.ExchangeName, routingKey: _configs.TTLMainConfig.RoutingKey);
+            channel.QueueBind(queue: _configs.TTlRetryConfig.QueueName, exchange: _configs.TTlRetryConfig.ExchangeName, routingKey: _configs.TTlRetryConfig.RoutingKey);
 
             #endregion
 
@@ -126,8 +129,36 @@ namespace RabbitMq.Services.Default.Services
             var argOverflow = new Dictionary<string, object> { { "x-max-length", 10 }};
             channel.QueueDeclare("OveflowQueue", durable: false, exclusive: false, autoDelete: false, arguments: argOverflow);
             #endregion
+            #region Priority
+            var priorityArg = new Dictionary<string, object> { { "x-max-priority",10 }};
+            channel.ExchangeDeclare(exchange: _configs.PeriorityConfig.ExchangeName, ExchangeType.Direct, durable: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: _configs.PeriorityConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: priorityArg);
+
+            channel.QueueBind(queue: _configs.PeriorityConfig.QueueName, exchange: _configs.PeriorityConfig.ExchangeName, routingKey: _configs.PeriorityConfig.RoutingKey);
+            #endregion
+            #region ConsumerPriority
+            channel.ExchangeDeclare(exchange: _configs.ConsumerPeriorityConfig.ExchangeName, ExchangeType.Direct, durable: false, autoDelete: false, arguments: null);
+            channel.QueueDeclare(queue: _configs.ConsumerPeriorityConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+            channel.QueueBind(queue: _configs.ConsumerPeriorityConfig.QueueName, exchange: _configs.ConsumerPeriorityConfig.ExchangeName, routingKey: _configs.ConsumerPeriorityConfig.RoutingKey);
+            #endregion
+
+
             channel.Close();
             channel.Dispose();
+
+            _connection.ConnectionBlocked += HandleBlocked;
+            _connection.ConnectionUnblocked += HandleUnblocked;
+
+        }
+        public void HandleBlocked(object sender, ConnectionBlockedEventArgs args)
+        {
+            // Connection is now blocked
+        }
+
+        public void HandleUnblocked(object sender, EventArgs args)
+        {
+            // Connection is now unblocked
         }
 
         public IModel GetInstance()

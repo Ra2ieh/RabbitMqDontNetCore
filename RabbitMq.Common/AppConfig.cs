@@ -17,6 +17,8 @@ namespace RabbitMq.Common
         public RabbitConfigs TTlRetryConfig { get; set; }
         public RabbitConfigs AltRetryConfig { get; set; }
         public RabbitConfigs AltMainConfig { get; set; }
+        public RabbitConfigs PeriorityConfig { get; set; }
+        public RabbitConfigs ConsumerPeriorityConfig { get; set; }
     }
 
     public class RabbitConfigs

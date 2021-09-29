@@ -3,20 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.Api", "RabbitMq.Api\RabbitMq.Api.csproj", "{919F1A22-8F26-46EC-BC92-3E0B7DFDB082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMq.Api", "RabbitMq.Api\RabbitMq.Api.csproj", "{919F1A22-8F26-46EC-BC92-3E0B7DFDB082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.Services.Contract", "RabbitMq.Services.Contract\RabbitMq.Services.Contract.csproj", "{7B56CE9D-E0D7-4630-A8D4-04711F72DE08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMq.Services.Contract", "RabbitMq.Services.Contract\RabbitMq.Services.Contract.csproj", "{7B56CE9D-E0D7-4630-A8D4-04711F72DE08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.Services.Default", "RabbitMq.Services.Default\RabbitMq.Services.Default.csproj", "{A0529652-1DFF-4665-970A-05041E6FF6F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMq.Services.Default", "RabbitMq.Services.Default\RabbitMq.Services.Default.csproj", "{A0529652-1DFF-4665-970A-05041E6FF6F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.Common", "RabbitMq.Common\RabbitMq.Common.csproj", "{144C8893-71FC-4C74-938D-FD7C0C5906CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMq.Common", "RabbitMq.Common\RabbitMq.Common.csproj", "{144C8893-71FC-4C74-938D-FD7C0C5906CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.DAL.Contract", "RabbitMq.DAL.Contract\RabbitMq.DAL.Contract.csproj", "{4EE4F242-34B3-4FBA-B042-01458DA369FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMq.DAL.Contract", "RabbitMq.DAL.Contract\RabbitMq.DAL.Contract.csproj", "{4EE4F242-34B3-4FBA-B042-01458DA369FB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{144C8893-71FC-4C74-938D-FD7C0C5906CD} = {144C8893-71FC-4C74-938D-FD7C0C5906CD}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.DAL.EF", "RabbitMq.DAL.EF\RabbitMq.DAL.EF.csproj", "{FEEA6B80-FDF2-4F44-A691-A06EB484BF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMq.DAL.EF", "RabbitMq.DAL.EF\RabbitMq.DAL.EF.csproj", "{FEEA6B80-FDF2-4F44-A691-A06EB484BF01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMqPriorityConsumer", "RabbitMqPriorityConsumer\RabbitMqPriorityConsumer.csproj", "{1890A0CB-B65D-4E40-8BF1-C527FBE117EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMqPriorityConsumer2", "RabbitMqPriorityConsumer2\RabbitMqPriorityConsumer2.csproj", "{1143FF1D-897B-49C7-B323-BF4CBB2795C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqPriorityConsmer3", "RabbitMqPriorityConsmer3\RabbitMqPriorityConsmer3.csproj", "{2F4AAC34-0E78-46B3-97E8-BA419FDFDEE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +54,18 @@ Global
 		{FEEA6B80-FDF2-4F44-A691-A06EB484BF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEEA6B80-FDF2-4F44-A691-A06EB484BF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEEA6B80-FDF2-4F44-A691-A06EB484BF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1890A0CB-B65D-4E40-8BF1-C527FBE117EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1890A0CB-B65D-4E40-8BF1-C527FBE117EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1890A0CB-B65D-4E40-8BF1-C527FBE117EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1890A0CB-B65D-4E40-8BF1-C527FBE117EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1143FF1D-897B-49C7-B323-BF4CBB2795C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1143FF1D-897B-49C7-B323-BF4CBB2795C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1143FF1D-897B-49C7-B323-BF4CBB2795C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1143FF1D-897B-49C7-B323-BF4CBB2795C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4AAC34-0E78-46B3-97E8-BA419FDFDEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4AAC34-0E78-46B3-97E8-BA419FDFDEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4AAC34-0E78-46B3-97E8-BA419FDFDEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4AAC34-0E78-46B3-97E8-BA419FDFDEE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

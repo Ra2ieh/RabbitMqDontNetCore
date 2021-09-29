@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qahi8UfTVf5KiHqdf1atk16rEQMtlbXq4Tw6kvMENGvg8Zr0g4nb37l14G8DWnNwGeoixKqxg2JaMzUnmOFWSw==",
+  "dgSpecHash": "VKLhfi8s6RKZ76PSKRaw8kh/SZIPj5TlZ3aHRzIB9o9N2rNQje7OehtOfiPAWUrChCE4Z/sLa9JMRl4ueWXCow==",
   "success": true,
   "projectFilePath": "F:\\programs\\RabbitMq\\RabbitMq.DAL.EF\\RabbitMq.DAL.EF.csproj",
   "expectedPackageFiles": [
@@ -13,9 +13,7 @@
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\5.0.0\\microsoft.extensions.options.configurationextensions.5.0.0.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\Ra2ieh\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Ra2ieh\\.nuget\\packages\\rabbitmq.client\\6.2.2\\rabbitmq.client.6.2.2.nupkg.sha512",
-    "C:\\Users\\Ra2ieh\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\Ra2ieh\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+    "C:\\Users\\Ra2ieh\\.nuget\\packages\\rabbitmq.client\\5.2.0\\rabbitmq.client.5.2.0.nupkg.sha512"
   ],
   "logs": []
 }
