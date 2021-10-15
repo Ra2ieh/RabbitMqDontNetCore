@@ -38,6 +38,7 @@ namespace RabbitMq.Services.Default.Services
                 var body = Encoding.UTF8.GetBytes(message + " " + i);
                 var properties = channel.CreateBasicProperties();
                 properties.SetPersistent(true);
+                properties.DeliveryMode = 2;
                 //properties.ContentType = "application/json";
                 properties.Priority = Convert.ToByte(i);
                 channel.BasicPublish(_configs.PeriorityConfig.ExchangeName, _configs.PeriorityConfig.RoutingKey, false, properties, body);

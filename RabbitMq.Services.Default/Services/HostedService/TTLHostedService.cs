@@ -72,9 +72,9 @@ namespace RabbitMq.Services.Default.Services.HostedService
             {
                 message = Encoding.UTF8.GetString(args.Body.ToArray());
                 var model = JsonConvert.DeserializeObject<MessageModel>(message);
-                    _consumer.Model.BasicNack(deliveryTag: args.DeliveryTag, multiple: false, requeue: false);
+                  //  _consumer.Model.BasicNack(deliveryTag: args.DeliveryTag, multiple: false, requeue: false);
 
-                    //_consumer.Model.BasicAck(deliveryTag: args.DeliveryTag, multiple: false);
+                    _consumer.Model.BasicAck(deliveryTag: args.DeliveryTag, multiple: false);
             }
             catch (Exception ex)
             {

@@ -107,8 +107,8 @@ namespace RabbitMq.Services.Default.Services
             channel.ExchangeDeclare(exchange: _configs.TTlRetryConfig.ExchangeName, ExchangeType.Direct, durable: false, autoDelete: false, arguments: null);
             var ttlMainQueueArg = new Dictionary<string, object> { { "x-dead-letter-exchange", _configs.TTlRetryConfig.ExchangeName },
                                                                    { "x-dead-letter-routing-key", _configs.TTlRetryConfig.RoutingKey },
-                                                                    //{ "x-max-length", 10 },
-                                                                    /*{"x-overflow","reject-publish" }*/ };
+                                                                    { "x-max-length", 10 },
+                                                                    {"x-overflow","reject-publish-dlx" } };
             channel.QueueDeclare(queue: _configs.TTLMainConfig.QueueName, durable: false, exclusive: false, autoDelete: false, arguments: ttlMainQueueArg);
 
             channel.QueueBind(queue: _configs.TTLMainConfig.QueueName, exchange: _configs.TTLMainConfig.ExchangeName, routingKey: _configs.TTLMainConfig.RoutingKey);

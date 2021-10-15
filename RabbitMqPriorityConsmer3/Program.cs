@@ -27,6 +27,7 @@ namespace RabbitMqPriorityConsmer3
                     {
                         var ea = (BasicDeliverEventArgs)consumer.Queue.Dequeue();
                         var body = ea.Body;
+                        
                         var message = Encoding.UTF8.GetString(body);
                         Console.WriteLine(" [x] Received {0}", message);
                         channel.BasicAck(ea.DeliveryTag, false);
